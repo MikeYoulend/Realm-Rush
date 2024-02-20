@@ -5,13 +5,19 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    void OnMouseOver() 
+    [SerializeField] bool isPlaceable;
+
+    void OnMouseDown() 
     {   
+        //Oppure molto semplicemente usiamo il metodo OnMouseDown
         //GetKeyDown quando si clicca una singola volta
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        //if(Input.GetMouseButtonDown(0))
+        if(isPlaceable)
         {
-            Debug.Log(transform.name);
+         Debug.Log(transform.name);
         }
+          
+        
         
     }
 }

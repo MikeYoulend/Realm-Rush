@@ -6,6 +6,7 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     [SerializeField] bool isPlaceable;
+    [SerializeField] GameObject catapult;
 
     void OnMouseDown() 
     {   
@@ -14,7 +15,7 @@ public class Waypoint : MonoBehaviour
         //if(Input.GetMouseButtonDown(0))
         if(isPlaceable)
         {
-         Debug.Log(transform.name);
+            GameObject Tower = Instantiate(catapult, transform.position, Quaternion.identity);
         }
           
         

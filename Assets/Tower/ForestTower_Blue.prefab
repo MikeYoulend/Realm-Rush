@@ -950,6 +950,7 @@ GameObject:
   - component: {fileID: 4072828905429358}
   - component: {fileID: 33829433565276502}
   - component: {fileID: 23788206743257480}
+  - component: {fileID: 3151713012894634249}
   m_Layer: 0
   m_Name: ForestTower_Blue
   m_TagString: Untagged
@@ -1029,6 +1030,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3151713012894634249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770514590405088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c90f9812dfecb7428a231bd9fee8761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 3274756303861156647}
+  target: {fileID: 0}
 --- !u!1 &1805820199700862
 GameObject:
   m_ObjectHideFlags: 0

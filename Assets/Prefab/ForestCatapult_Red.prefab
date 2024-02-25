@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 4365009236294980}
   - component: {fileID: 2544638151055588959}
   - component: {fileID: 874287235985401806}
+  - component: {fileID: -5821775506032937558}
   m_Layer: 0
   m_Name: ForestCatapult_Red
   m_TagString: Untagged
@@ -312,6 +313,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5, y: 1.6969345, z: 2.4}
   m_Center: {x: 0, y: 0.63553107, z: 0}
+--- !u!114 &-5821775506032937558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307900707547382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00038ee817116e742a5219d0133d69cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHitPoints: 5
 --- !u!1 &1339958309788442
 GameObject:
   m_ObjectHideFlags: 0

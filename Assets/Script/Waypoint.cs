@@ -8,6 +8,11 @@ public class Waypoint : MonoBehaviour
     [SerializeField] bool isPlaceable;
     [SerializeField] GameObject catapult;
 
+    public bool GetIsPlaceable()
+    {
+        return isPlaceable;
+    }
+
     void OnMouseDown() 
     {   
         //Oppure molto semplicemente usiamo il metodo OnMouseDown

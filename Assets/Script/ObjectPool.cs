@@ -34,10 +34,23 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
+    void enableObjectInPool()
+    {
+        for( int i = 0; i < pool.Length; i++)
+        {
+            if(pool[i].activeInHierarchy == false)
+            {
+                pool[i].SetActive(true);
+                return;
+            }
+        }
+    }
+
     IEnumerator SpawnEnemy()
     {
         while(true)
         {
+            enableObjectInPool();
             yield return new WaitForSeconds(spawnTimer);
         }
     }

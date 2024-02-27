@@ -35,6 +35,15 @@ public class CoordinateLabeler : MonoBehaviour
         ColorCordinates();
     }
 
+    void ToggleLabels()
+    {
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            //settiamo label nello stato opposto a quello attualmente attivo
+            label.enabled = !label.IsActive();
+        }
+    }
+
     void ColorCordinates()
     {
         if(waypoint.IsPlaceable)

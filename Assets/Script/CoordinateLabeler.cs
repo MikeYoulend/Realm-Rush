@@ -7,13 +7,18 @@ using UnityEngine;
 [ExecuteAlways]
 public class CoordinateLabeler : MonoBehaviour
 {
+    [SerializeField] Color defaultColor = Color.white;
+    [SerializeField] Color blockedColor = Color.gray;
+
     TextMeshPro label;
     //Qui con seconda parte stiamo inizializzando coordinate con i valori predefiniti quindi Vector2( x = 0 & y = 0)
     Vector2Int coordinates = new Vector2Int(); 
+    Waypoint waypoint;
 
     void Awake() //Awake  è letteralmente la prima cosa che viene fatta
     {
         label = GetComponent<TextMeshPro>();
+        waypoint = GetComponentInParent<Waypoint>();
         //lo richiamiamo anche qui cosi quando premiamo play non crasha 
         DisplayCoordinates();
     }
@@ -25,6 +30,20 @@ public class CoordinateLabeler : MonoBehaviour
         {
             DisplayCoordinates();
             UpdateObjectName();
+        }
+
+        ColorCordinates();
+    }
+
+    void ColorCordinates()
+    {
+        if(waypoint.IsPlaceable)
+        {
+            label.color = defaultColor;
+        } 
+        else 
+        {
+            label.color = blockedColor;
         }
     }
 

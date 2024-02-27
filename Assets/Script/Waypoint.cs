@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    [SerializeField] bool isPlaceable;
-    [SerializeField] GameObject catapult;
 
-    public bool GetIsPlaceable()
-    {
-        return isPlaceable;
-    }
+    [SerializeField] GameObject catapult;
+    [SerializeField] bool isPlaceable;
+
+    public bool IsPlaceable { get {return isPlaceable;}}
 
     void OnMouseDown() 
     {   

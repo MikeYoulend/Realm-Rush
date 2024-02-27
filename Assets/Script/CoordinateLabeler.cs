@@ -18,6 +18,8 @@ public class CoordinateLabeler : MonoBehaviour
     void Awake() //Awake  è letteralmente la prima cosa che viene fatta
     {
         label = GetComponent<TextMeshPro>();
+        //di default lo teniamo disabilitato
+        label.enabled = false;
         waypoint = GetComponentInParent<Waypoint>();
         //lo richiamiamo anche qui cosi quando premiamo play non crasha 
         DisplayCoordinates();
@@ -33,6 +35,7 @@ public class CoordinateLabeler : MonoBehaviour
         }
 
         ColorCordinates();
+        ToggleLabels();
     }
 
     void ToggleLabels()

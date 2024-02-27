@@ -4,15 +4,43 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject enemyPrefab;
+    //diamo un numero alla pool di nemici che vogliamo
+    [SerializeField] int poolSize = 5;
+    [SerializeField] float spawnTimer = 1f;
+    
+    //definiamo l'array della pool
+    GameObject[] pool;
+
+    void Awake() 
     {
-        
+        PopulatePool();    
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        StartCoroutine(SpawnEnemy());
     }
+
+    void PopulatePool()
+    {   
+        //pool avrà massimo 5 nemici
+        pool = new GameObject[poolSize];
+
+        for(int i = 0;  i < pool.Length; i++)
+        {
+            pool[i] = Instantiate(enemyPrefab, transform);
+            pool[i].SetActive(false);
+        }
+    }
+
+    IEnumerator SpawnEnemy()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(spawnTimer);
+        }
+    }
+
+
 }

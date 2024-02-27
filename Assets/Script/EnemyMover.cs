@@ -10,14 +10,32 @@ public class EnemyMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {  
-        
+        FindPath();
+        ReturnToStart();
         StartCoroutine(FollowPath());
         
         //InvokeRepeating("NomeDelMetodo", tempoDiRitardo, Intervallo)
         //InvokeRepeating("PrintWaypointName", 0, 1f);
-        
     }
 
+    void FindPath()
+    {   
+        path.Clear();
+
+        //Abbiamo inserito in un array il GameObject con tag Path
+        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
+
+        foreach(GameObject waypoint in waypoints)
+        {   
+            //aggiungiamo ogni elemento di waypoints nella list<Waypoint>
+            path.Add(waypoint.GetComponent<Waypoint>());
+        }
+    }
+
+    void ReturnToStart()
+    {
+        transform.position = path[0].transform.position;
+    }
 
   //IEnumerator in C# è un interfaccia utilizzata in Unity per definire coroutine, che sono funzioni che possono essere eseguite in modo asincrono. Le coroutine consentono di eseguire azioni come attese o operazioni asincrone senza bloccare il flusso principale del programma.
     IEnumerator FollowPath()
@@ -43,5 +61,6 @@ public class EnemyMover : MonoBehaviour
             //Arrivati a questo punto gli diciamo ritorna qui fra un secondo
             //yield return new WaitForSeconds(waitTime);
         }
+        Destroy(gameObject);
     }
 }

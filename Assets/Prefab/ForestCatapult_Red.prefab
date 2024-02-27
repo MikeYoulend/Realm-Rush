@@ -326,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHitPoints: 5
+  currentHitPoints: 0
 --- !u!1 &1339958309788442
 GameObject:
   m_ObjectHideFlags: 0

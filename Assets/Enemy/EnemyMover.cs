@@ -6,6 +6,8 @@ public class EnemyMover : MonoBehaviour
 {
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] float speed = 1f;
+
+    Enemy enemy;
    
     //la seconda cosa che viene chiamata in ordine
     void OnEnable()
@@ -17,6 +19,12 @@ public class EnemyMover : MonoBehaviour
         //InvokeRepeating("NomeDelMetodo", tempoDiRitardo, Intervallo)
         //InvokeRepeating("PrintWaypointName", 0, 1f);
     }
+
+    void Start() 
+    {
+       enemy = GetComponent<Enemy>();
+    }
+
 
     void FindPath()
     {   
@@ -60,7 +68,9 @@ public class EnemyMover : MonoBehaviour
             
             //Arrivati a questo punto gli diciamo ritorna qui fra un secondo
             //yield return new WaitForSeconds(waitTime);
+            
         }
         gameObject.SetActive(false);
+        enemy.StealGold();
     }
 }

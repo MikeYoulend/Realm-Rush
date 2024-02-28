@@ -5,11 +5,17 @@ using UnityEngine;
 public class Bank : MonoBehaviour
 {   
     [SerializeField] int startingBalance = 150;
-    int currentBalance;
+    [SerializeField] int currentBalance;
     public int CurrentBalance { get { return currentBalance; }}
+
+    void Awake() 
+    {
+        currentBalance = startingBalance;
+    }
    
    public void Deposit(int amount)
    {    
+        //Mathf.Abs fa si di ritornare sempre un numero positivo
         currentBalance += Mathf.Abs(amount);
    }
    public void Withdraw(int amount)

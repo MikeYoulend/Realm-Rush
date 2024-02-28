@@ -9,7 +9,7 @@ public class TargetLocator : MonoBehaviour
     void Start()
     {
         //Cannot implicitly convert type 'EnemyMover' to 'UnityEngine.Transform' / per questo errore .transform
-        target = FindObjectOfType<EnemyMover>().transform;
+        target = FindObjectOfType<Enemy>().transform;
     }
 
     void Update()

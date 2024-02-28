@@ -70,7 +70,7 @@ public class EnemyMover : MonoBehaviour
             //yield return new WaitForSeconds(waitTime);
             
         }
-        gameObject.SetActive(false);
         enemy.StealGold();
+        gameObject.SetActive(false);
     }
 }

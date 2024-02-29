@@ -6,7 +6,7 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
 
-    [SerializeField] GameObject catapult;
+    [SerializeField] Tower towerPrefab;
     [SerializeField] bool isPlaceable;
 
     public bool IsPlaceable { get {return isPlaceable;}}
@@ -17,9 +17,10 @@ public class Waypoint : MonoBehaviour
         //GetKeyDown quando si clicca una singola volta
         //if(Input.GetMouseButtonDown(0))
         if(isPlaceable)
-        {
-            GameObject Tower = Instantiate(catapult, transform.position, Quaternion.identity);
-            isPlaceable = false;
+        {   
+            bool isPlaced = towerPrefab.CreateTower(towerPrefab, transform.position);
+            //Instantiate(catapult, transform.position, Quaternion.identity);
+            isPlaceable = !isPlaced;
         }
           
         

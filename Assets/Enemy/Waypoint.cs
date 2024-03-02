@@ -19,8 +19,8 @@ public class Waypoint : MonoBehaviour
         if(isPlaceable)
         {   
             //d
-            bool isPlaced = towerPrefab.CreateTower(towerPrefab, tr m.position);
-            //Instantiate(catapult, transform.position, Quaternion. ty);
+            bool isPlaced = towerPrefab.CreateTower(towerPrefab, transform.position);
+            //Instantiate(catapult, transform.position, Quaternion.identity);
             isPlaceable = !isPlaced;
         }
           

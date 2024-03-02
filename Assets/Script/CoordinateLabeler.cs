@@ -35,7 +35,7 @@ public class CoordinateLabeler : MonoBehaviour
             UpdateObjectName();
         }
 
-        ColorCordinates();
+        SetLabelColor();
         ToggleLabels();
     }
 
@@ -48,7 +48,7 @@ public class CoordinateLabeler : MonoBehaviour
         }
     }
 
-    void ColorCordinates()
+    void SetLabelColor()
     {
         if(waypoint.IsPlaceable)
         {

@@ -9,6 +9,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {      
     [SerializeField] int maxHitPoints = 5;
+    [Tooltip("Adds Amount to maxHitPoints when enemy dies")]
     [SerializeField] int difficultyRamp = 1;
     int currentHitPoints = 0;
     

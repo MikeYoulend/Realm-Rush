@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
 {
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
@@ -31,18 +32,31 @@ public class EnemyMover : MonoBehaviour
         path.Clear();
 
         //Abbiamo inserito in un array il GameObject con tag Path
-        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
+        GameObject parent = GameObject.FindGameObjectWithTag("Path");
 
-        foreach(GameObject waypoint in waypoints)
+        //prenderà parent e looperà i child in order
+        foreach(Transform child in parent.transform)
         {   
             //aggiungiamo ogni elemento di waypoints nella list<Waypoint>
-            path.Add(waypoint.GetComponent<Waypoint>());
+            Waypoint waypoint = child.GetComponent<Waypoint>();
+
+            if(waypoint != null)
+            {
+                path.Add(waypoint);    
+            }
+            
         }
     }
 
     void ReturnToStart()
     {
         transform.position = path[0].transform.position;
+    }
+
+    void FinishPath()
+    {
+        enemy.StealGold();
+        gameObject.SetActive(false);
     }
 
   //IEnumerator in C# è un interfaccia utilizzata in Unity per definire coroutine, che sono funzioni che possono essere eseguite in modo asincrono. Le coroutine consentono di eseguire azioni come attese o operazioni asincrone senza bloccare il flusso principale del programma.
@@ -70,7 +84,6 @@ public class EnemyMover : MonoBehaviour
             //yield return new WaitForSeconds(waitTime);
             
         }
-        enemy.StealGold();
-        gameObject.SetActive(false);
+       FinishPath();
     }
 }

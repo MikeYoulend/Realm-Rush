@@ -64,9 +64,11 @@ public class EnemyMover : MonoBehaviour
     {
         foreach(Waypoint waypoint in path)
         {   
+            
             Vector3 startPosition = transform.position;
             Vector3 endPosition = waypoint.transform.position;
             //Aggiunto 1 su asse y senò sarebbe nel terreno
+            
             endPosition.y += 1f; 
             float traverlPercent = 0f;
 

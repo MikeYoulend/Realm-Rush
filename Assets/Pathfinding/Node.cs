@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+
 //NO MonoBehaviour = non è un componente Unity
 //è un semplice classe che contiene dati o logica
 public class Node

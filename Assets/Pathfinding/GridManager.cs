@@ -12,6 +12,17 @@ public class GridManager : MonoBehaviour
     void Awake()
     {
         CreateGrid();
+    }   
+
+    //ritorniamo Node dal Dictionary
+    public Node GetNode(Vector2Int coordinates)
+    {
+        if(grid.ContainsKey(coordinates))
+        {
+            return grid[coordinates];
+        }
+        
+        return null;
     }
 
     void CreateGrid()

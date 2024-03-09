@@ -6,6 +6,7 @@ public class GridManager : MonoBehaviour
 {   
     //Dictionary è una struttura dati in C# che associa una chiave univoca a un valore. 
     //È simile a un dizionario reale in cui una parola (la chiave) è associata al suo significato (il valore).
+    //Vector2Int è un modo per rappresentare posizioni o vettori in uno spazio bidimensionale utilizzando solo numeri interi
     [SerializeField] Vector2Int gridSize;
     Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>();
 
@@ -17,6 +18,9 @@ public class GridManager : MonoBehaviour
     //ritorniamo Node dal Dictionary
     public Node GetNode(Vector2Int coordinates)
     {
+        //controlla se nel dizionario grid c'è una voce associata a quelle cordinate
+        //se esiste ristituisce il nodo corrispondente
+        //se non esiste restituisce null quindi nessun nodo
         if(grid.ContainsKey(coordinates))
         {
             return grid[coordinates];

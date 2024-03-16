@@ -56,12 +56,26 @@ public class CoordinateLabeler : MonoBehaviour
     {   
         if(gridManager == null) {return;}
 
-        Node node = gridManager.GetNode(coordinates);
+        Node node = gridManager.GetNode(coordinates); 
+
+        //per fixxare l'errore
+        if(node == null) { return; }
 
         if(!node.isWalkable)
         {
             label.color = blockedColor;
         } 
+        else if(node.isPath)
+        {
+            label.color = pathColor;
+        } 
+        else if(node.isExplored)
+        {
+            label.color = exploredColor;
+        } else
+        {
+            label.color = defaultColor;
+        }
     }
 
     void DisplayCoordinates()

@@ -9,6 +9,8 @@ public class GridManager : MonoBehaviour
     //Vector2Int è un modo per rappresentare posizioni o vettori in uno spazio bidimensionale utilizzando solo numeri interi
     [SerializeField] Vector2Int gridSize;
     Dictionary<Vector2Int, Node> grid = new Dictionary<Vector2Int, Node>();
+    public Dictionary<Vector2Int, Node> Grid { get { return grid;} }
+
 
     void Awake()
     {
@@ -43,7 +45,6 @@ public class GridManager : MonoBehaviour
                 //La prima colonna di questa riga sarà il numero di coordinate che stiamo considerando
                 //la seconda colonna sarà il tipo di "nodo" che vogliamo creare.
                 grid.Add(coordinates, new Node(coordinates, true));
-                Debug.Log(grid[coordinates].coordinates + " = " + grid[coordinates].isWalkable);
             }
         }
     }

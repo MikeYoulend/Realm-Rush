@@ -35,7 +35,7 @@ public class Pathfinder : MonoBehaviour
 
     void Start()
     {
-        ExploreNeighbors();
+        BreadthFirstSearch();
     }
 
     void ExploreNeighbors()
@@ -56,7 +56,8 @@ public class Pathfinder : MonoBehaviour
         {
             if(!reached.ContainsKey(neighbor.coordinates) && neighbor.isWalkable)
             {
-                
+                reached.Add(neighbor.coordinates, neighbor);
+                frontier.Enqueue(neighbor);
             }
         }
     }

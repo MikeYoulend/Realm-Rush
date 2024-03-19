@@ -72,6 +72,7 @@ public class Pathfinder : MonoBehaviour
         while(frontier.Count > 0 && isRunning)
         {
             currentSearchNode = frontier.Dequeue();
+            currentSearchNode.isExplored = true;
             ExploreNeighbors();
             if(currentSearchNode.coordinates == destinateCoordinates)
             {

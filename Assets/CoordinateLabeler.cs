@@ -24,7 +24,7 @@ public class CoordinateLabeler : MonoBehaviour
         label = GetComponent<TextMeshPro>();
         //di default lo teniamo disabilitato
         label.enabled = false;
-        GetComponentInParent<Waypoint>();
+        GetComponentInParent<Tile>();
         //lo richiamiamo anche qui cosi quando premiamo play non crasha 
         DisplayCoordinates();
     }
@@ -86,8 +86,9 @@ public class CoordinateLabeler : MonoBehaviour
         //UnityEditor.EditorSnapSettings.move.x cioò significa....
         //Dividi la posizione per il movimento che hai impostasto su Unity in questo caso 10 
         //Quindi in posizione 10,0 diventerà 1,0
-        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x); 
-        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
+        if(gridManager == null) { return; }
+        coordinates.x = Mathf.RoundToInt(transform.parent.position.x / gridManager.UnityGridSize); 
+        coordinates.y = Mathf.RoundToInt(transform.parent.position.z / gridManager.UnityGridSize);
         label.text = coordinates.x + "," + coordinates.y;
     }
 

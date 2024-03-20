@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Enemy))]
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] List<Waypoint> path = new List<Waypoint>();
+    [SerializeField] List<Tile> path = new List<Tile>();
     [SerializeField] [Range(0f, 5f)] float speed = 1f;
 
     Enemy enemy;
@@ -38,7 +38,7 @@ public class EnemyMover : MonoBehaviour
         foreach(Transform child in parent.transform)
         {   
             //aggiungiamo ogni elemento di waypoints nella list<Waypoint>
-            Waypoint waypoint = child.GetComponent<Waypoint>();
+            Tile waypoint = child.GetComponent<Tile>();
 
             if(waypoint != null)
             {
@@ -62,7 +62,7 @@ public class EnemyMover : MonoBehaviour
   //IEnumerator in C# è un interfaccia utilizzata in Unity per definire coroutine, che sono funzioni che possono essere eseguite in modo asincrono. Le coroutine consentono di eseguire azioni come attese o operazioni asincrone senza bloccare il flusso principale del programma.
     IEnumerator FollowPath()
     {
-        foreach(Waypoint waypoint in path)
+        foreach(Tile waypoint in path)
         {   
             
             Vector3 startPosition = transform.position;
